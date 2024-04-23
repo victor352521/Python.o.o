@@ -9,11 +9,26 @@ class Carro:
         print("Marca: ", self.marca)
         print("Modelo ", self.modelo)
         print("Ano ", self.ano)
+        print("Cor", self.cor)
 
-carro1 = Carro("Chevrolet", "Camaro Z28", "2014")
-carro2 = Carro("Chevrolet", "Corvette ZR1", "2019")
-carro3 = Carro("Chevrolet", "Opala SS", "1974")
+carros = []
 
-carro1.exibir_informacoes()
-carro2.exibir_informacoes()
-carro3.exibir_informacoes()
+while True:
+    marca = input("Insira a marca do carro ou 'sair' para sair:")
+
+    if marca.lower() == "sair":
+        break
+
+    modelo = input("Digite o modelo do carro:")
+    cor = input("Digite a cor do carro:")
+    ano = input("Digite o ano do carro:")
+
+    carro = Carro(marca, modelo, cor, ano)
+    carros.append(carro)
+
+print("\n Informações dos carros: ")
+for i, carro in enumerate(carros, start=1):
+    print(f"\n Carro {i}")
+    carro.exibir_informacoes()
+    
+    input()
